@@ -41,13 +41,12 @@ module.exports = (...args) => {
 
   // Append event and dispatch to listeners
   let push = socket => fact => {
-    execFileSync(OCAML_WRITE, [socket._namespace, fact]);
+    let logId = execFileSync(OCAML_WRITE, [socket._namespace, fact]);
 
     info(`socket pushed immutable fact: ${fact}`);
-
     listeners[socket._namespace].forEach(_sock => {
       if (socket !== _sock) {
-        _sock.write(`${fact}\n`);
+        _sock.write(`${logId} ${fact}\n`);
       }
     });
   };
@@ -56,10 +55,11 @@ module.exports = (...args) => {
   let close = socket => () => {
     info(`socket left namespace ${socket._namespace}`);
 
-    listeners[socket._namespace].splice(
-      listeners[socket._namespace].indexOf(socket),
-      1
-    );
+    if (socket._namespace)
+      listeners[socket._namespace].splice(
+        listeners[socket._namespace].indexOf(socket),
+        1
+      );
   };
 
   net

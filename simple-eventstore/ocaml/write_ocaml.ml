@@ -9,6 +9,7 @@ let logFile = concat "" [Sys.argv.(1); ".id"; ".dblog"];;
 let append_log logId payload = 
   let oc = open_out_gen [Open_append; Open_creat] 0o664 file in
   fprintf oc "%d %s\n" logId payload;
+  print_int logId;
   close_out oc
 ;;
 
