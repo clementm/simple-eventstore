@@ -1,0 +1,18 @@
+language: node_js
+sudo: enabled
+
+branches:
+  only:
+    - master
+    - /^v(\d+\.){0,2}\d+$/
+
+before_install:
+  - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq ocaml
+
+script:
+  - cd simple-eventstore
+  - npm run build && npm publish --access public
+  - cd ../simple-eventstore-adapter
+  - npm publish --access public

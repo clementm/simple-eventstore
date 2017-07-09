@@ -1,6 +1,6 @@
 {
   "name": "@m1ch3lcl/simple-eventstore",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple Node.JS + OCaml based event store",
   "main": "index.js",
   "dependencies": {

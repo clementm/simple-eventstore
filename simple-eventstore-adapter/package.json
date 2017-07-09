@@ -1,6 +1,6 @@
 {
   "name": "@m1ch3lcl/simple-eventstore-adapter",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Node.JS adapter for simple-eventstore",
   "main": "index.js",
   "dependencies": {
