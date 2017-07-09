@@ -3,7 +3,6 @@ sudo: enabled
 
 branches:
   only:
-    - master
     - /^v(\d+\.){0,2}\d+$/
 
 before_install:
