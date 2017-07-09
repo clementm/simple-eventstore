@@ -1,0 +1,11 @@
+# Local folders
+.dblog
+~trash
+.vscode
+node_modules
+
+
+# Compilation files
+*.bin
+*.cmi
+*.cmo

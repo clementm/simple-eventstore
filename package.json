@@ -1,0 +1,19 @@
+{
+  "name": "@m1ch3lcl/simple-eventstore",
+  "version": "1.0.0",
+  "description": "A simple Node.JS + OCaml based event store",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "npm run ocaml:read && npm run ocaml:write",
+    "ocaml:read": "cd ocaml/ && ocamlc unix.cma str.cma -o read_ocaml.bin read_ocaml.ml",
+    "ocaml:write": "cd ocaml/ && ocamlc unix.cma str.cma -o write_ocaml.bin write_ocaml.ml"
+  },
+  "author": "Clément Michel",
+  "license": "MIT"
+}
